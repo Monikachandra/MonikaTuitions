@@ -1,219 +1,283 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Monika Chandra | Most Loved Maths & CS Tutor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
 
-<title>Online Maths & Computer Science Tuitions</title>
+    <style>
+        :root {
+            --primary: #ff5e62;
+            --secondary: #6c5ce7;
+            --accent: #ffe600;
+            --dark: #2d3436;
+            --glass: #ffffff;
+        }
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f4f7fe;
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-<style>
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #6c5ce7, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            text-align: center;
+            padding: 100px 20px 80px 20px;
+            color: white;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    margin:0;
-    background-color:#f5f7fa;
-    color:#333;
-}
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-.header {
-    background:#2c3e50;
-    color:white;
-    padding:40px 20px;
-    text-align:center;
-}
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 75px);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 0.9;
+        }
 
-.container {
-    width:85%;
-    max-width:900px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    margin-top:30px;
-    border-radius:10px;
-    box-shadow:0px 0px 10px rgba(0,0,0,0.08);
-}
+        .hero p {
+            font-size: clamp(18px, 4vw, 24px);
+            font-weight: 300;
+            max-width: 850px;
+            margin: 20px auto;
+        }
 
-h1,h2,h3 {
-    color:#2c3e50;
-}
+        /* OFFER BAR */
+        .offer {
+            background: var(--accent);
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 800;
+            color: #000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
 
-.section {
-    margin-bottom:35px;
-}
+        /* BOARDS */
+        .boards {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+        }
 
-ul {
-    line-height:1.8;
-}
+        .tag {
+            display: inline-block;
+            background: #f0f2f8;
+            margin: 6px;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 14px;
+        }
 
-.contact {
-    background:#ecf0f1;
-    padding:20px;
-    border-radius:8px;
-}
+        /* CONTENT CONTAINER */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px 100px 20px;
+        }
 
-.video-container {
-    margin-top:15px;
-}
+        .card {
+            background: var(--glass);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
 
-iframe {
-    width:100%;
-    height:315px;
-    border:none;
-    border-radius:8px;
-}
+        h2 {
+            font-size: 28px;
+            color: var(--secondary);
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
 
-.footer {
-    text-align:center;
-    padding:20px;
-    color:#777;
-}
+        /* FEEDBACK BOX - REDESIGNED FOR "ACTIVE" FEEL */
+        .feedback-container {
+            background: #fdf2f2;
+            border-left: 8px solid var(--primary);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 25px;
+        }
 
-</style>
+        .feedback-container h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 20px;
+        }
 
+        /* GRID SYSTEM */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        ul { list-style: none; padding: 0; }
+        ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-weight: 500;
+            font-size: 15px;
+        }
+        ul li::before {
+            content: "✦";
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .video-card {
+            border-radius: 20px;
+            overflow: hidden;
+            display: block;
+            border: 4px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .video-card:hover { transform: scale(1.03); }
+        .video-card img { width: 100%; display: block; }
+
+        .whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 18px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 10000;
+        }
+
+        @media (max-width: 768px) {
+            .grid, .video-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 50px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="header">
+<div class="hero">
+    <h1 class="reveal">Monika Chandra</h1>
+    <p class="reveal">The <b>Most Loved Tutor</b> for Mathematics & Computer Science</p>
+    <p class="reveal">Expert Coaching for <b>Classes 1 to 12</b> | 5+ Years Experience</p>
+</div>
 
-<h1>Online Tuitions</h1>
+<div class="offer">
+    ⚡ 2 FREE Demo Classes + Regular Feedback Loops Included! ⚡
+</div>
 
-<h2>Mathematics • Computer Science • Coding</h2>
-
-<p>Up to Class 12 | Board Exam Focus | Concept-Based Learning</p>
-
+<div class="boards">
+    <span class="tag">CBSE</span>
+    <span class="tag">IB (MYP/DP)</span>
+    <span class="tag">IGCSE</span>
+    <span class="tag">UAE / US / Sweden</span>
+    <span class="tag">State Boards (TS/AP)</span>
 </div>
 
 <div class="container">
+    
+    <div class="card reveal">
+        <h2>👩‍🏫 Why Students Love Learning With Me</h2>
+        <p>I specialize in teaching students from <b>Primary school up to Class 12</b>. I believe learning shouldn't be stressful, so I focus on building a strong foundation and deep logic.</p>
+        
+        <div class="feedback-container">
+            <h3>🔄 Real-Time Feedback Culture</h3>
+            <p>I <b>actively take regular feedback from students</b> during our sessions to adapt my teaching style to their pace in real-time. </p>
+            <p>Plus, every student can get a <b>Personalized Free Feedback Session</b> whenever they want (once every week!). </p>
+            <p style="margin: 0;"><b>For Parents:</b> You are always welcome to jump on a free session to share your feedback and discuss your child's growth whenever you need.</p>
+        </div>
+    </div>
 
-<!-- ABOUT -->
+    <div class="grid">
+        <div class="card reveal">
+            <h2>📚 Mathematics (K-12)</h2>
+            <ul>
+                <li>Classes 1 to 12 (All Boards)</li>
+                <li>Step-by-step logical explanations</li>
+                <li>Concept clarity over rote learning</li>
+                <li>Exam-focused preparation (PYQs)</li>
+                <li>24/7 doubt clearing support</li>
+            </ul>
+        </div>
 
-<div class="section">
+        <div class="card reveal">
+            <h2>💻 Computer Science</h2>
+            <ul>
+                <li>Coding in python</li>
+                <li>JavaScript Mastery</li>
+                <li>Data Structures & Algorithms</li>
+                <li>Programming Fundamentals</li>
+                <li>Other computer science subjects</li>
+            </ul>
+        </div>
+    </div>
 
-<h2>👩‍🏫 About Me</h2>
+    <div class="card reveal">
+        <h2>🎥 Teaching Samples</h2>
+        <div class="video-grid">
+            <a class="video-card" href="https://www.youtube.com/watch?v=4GD00--XIR0" target="_blank">
+                <img src="https://img.youtube.com/vi/4GD00--XIR0/maxresdefault.jpg" alt="Maths Class">
+            </a>
+            <a class="video-card" href="https://www.youtube.com/watch?v=yqDjWufHZd8" target="_blank">
+                <img src="https://img.youtube.com/vi/yqDjWufHZd8/maxresdefault.jpg" alt="Coding Class">
+            </a>
+        </div>
+    </div>
 
-<p>
-I am an experienced online tutor teaching Mathematics and Computer Science up to Class 12 level.
-I have teaching experience across multiple curricula including CBSE, UAE curriculum, US curriculum,
-Sweden curriculum, and TS/AP State boards.
-</p>
-
-<p>
-My teaching approach focuses on strong conceptual understanding, structured board exam preparation,
-and building confidence through clear explanations and guided practice.
-</p>
-
-</div>
-
-<!-- SUBJECTS -->
-
-<div class="section">
-
-<h2>📚 Subjects Offered</h2>
-
-<h3>✅ Mathematics (Board Exam Focus)</h3>
-
-<ul>
-<li>Complete syllabus coverage</li>
-<li>Step-by-step problem solving</li>
-<li>Important exam questions and patterns</li>
-<li>Concept clarity for better scoring</li>
-<li>Structured preparation for board exams</li>
-</ul>
-
-<h3>💻 Computer Science</h3>
-
-<ul>
-<li>School syllabus support</li>
-<li>Programming fundamentals</li>
-<li>Logic building</li>
-<li>Exam preparation guidance</li>
-</ul>
-
-<h3>👨‍💻 Coding</h3>
-
-<ul>
-<li>Python programming</li>
-<li>JavaScript basics</li>
-<li>Beginner-friendly coding</li>
-<li>Problem solving through programming</li>
-</ul>
-
-</div>
-
-<!-- TEACHING METHOD -->
-
-<div class="section">
-
-<h2>🎯 Teaching Method</h2>
-
-<ul>
-<li>Concept-focused learning with exam orientation</li>
-<li>Regular doubt clearing — I remain available to support students whenever needed</li>
-<li>Continuous monitoring of student progress</li>
-<li>Regular communication with parents for feedback and improvement</li>
-<li>Supportive and encouraging learning environment</li>
-</ul>
+    <div class="card reveal" style="text-align:center; background: var(--dark); color: white;">
+        <h2 style="color: white; justify-content: center;">Start Your Journey</h2>
+        <p>📧 monikachandra24@gmail.com</p>
+        <p>📱 +91 9966999610</p>
+    </div>
 
 </div>
 
-<!-- DEMO VIDEOS -->
+<a class="whatsapp" href="https://wa.me/919966999610" target="_blank">
+    💬 Book My Free Session
+</a>
 
-<div class="section">
-
-<h2>🎥 Teaching Demo Videos</h2>
-
-<p>Refer these videos to understand my teaching style:</p>
-
-<h3>Mathematics Demo</h3>
-
-<div class="video-container">
-<iframe src="https://www.youtube.com/embed/4GD00--XIR0"></iframe>
-</div>
-
-<h3>Computer Science Demo</h3>
-
-<div class="video-container">
-<iframe src="https://www.youtube.com/embed/yqDjWufHZd8"></iframe>
-</div>
-
-</div>
-
-<!-- MODE -->
-
-<div class="section">
-
-<h2>💻 Mode of Classes</h2>
-
-<ul>
-<li>Online live sessions</li>
-<li>One-to-one or small batch classes</li>
-<li>Interactive teaching with guided practice</li>
-</ul>
-
-</div>
-
-<!-- CONTACT -->
-
-<div class="section contact">
-
-<h2>📞 Contact</h2>
-
-<p>For enquiries or demo class:</p>
-
-<p><b>WhatsApp:</b> YOUR NUMBER HERE</p>
-<p><b>Email:</b> YOUR EMAIL HERE</p>
-
-</div>
-
-</div>
-
-<div class="footer">
-
-<p>Online Tuition Services</p>
-
-</div>
+<script>
+    ScrollReveal().reveal('.reveal', {
+        delay: 200,
+        distance: '40px',
+        origin: 'bottom',
+        duration: 800,
+        interval: 150,
+        cleanup: true
+    });
+</script>
 
 </body>
-
 </html>
